@@ -21,9 +21,9 @@ def pegar_dados_para_plotagem():
         if olimpiada in jogos_selecionados and athlete['noc'] == noc_escolhido:
             data[olimpiada][athlete['medal']] += 1
     
-    return data
+    return data, (pais_escolhido, num_olimpiadas, tipo_olimpiada)
 
-def plotar_L3(data):
+def plotar_L3(data, title):
     # agora é só plotar
     fig, ax = plt.subplots()
     r = range(len(data))
@@ -48,7 +48,7 @@ def plotar_L3(data):
     plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
             rotation_mode="anchor")
 
-    plt.title('Desempenho do <País> nas últimas <X> olimpíadas de <Tipo de Olimpíada>, três linhas, uma por cada tipo de medalha'.format)
+    plt.title('Desempenho do {} nas últimas {} olimpíadas de {}, três linhas, uma por cada tipo de medalha'.format(*title))
 
     plt.legend()
 
