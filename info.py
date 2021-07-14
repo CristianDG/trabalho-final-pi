@@ -14,14 +14,17 @@ continentes = sorted(list(set([line[0] for line in countries_continents])))
 
 def criar_menu(arr):
     for i, item in enumerate(arr):
-        print("{}) {}".format(i,item))
+        if type(item) == list:
+            print("{}) {}".format(i+1," ".join(item)))
+        else:
+            print("{}) {}".format(i+1,item))
     print()
 
 def escolher_noc():
 
     # selecionar o continente
     criar_menu(continentes)
-    
+
     num_continentes = int(input('Selecione o numero do continente: ')) - 1
     continente_escolhido = continentes[num_continentes]
 
@@ -39,7 +42,7 @@ def escolher_noc():
     noc_escolhido = {'US': 'USA', 'CZ':'CZE'}.get(pais, '')
     for noc, region, _ in noc_regions:
         if region == pais:
-            
+
             noc_escolhido = noc
             break
 
@@ -51,5 +54,5 @@ def selecionar_tipo_olimpiada():
 
     num_escolhido = int(input("Selecione o tipo de olimpiada: "))
     tipo_olimpiada = {1: "Summer", 2: "Winter"}[num_escolhido]
-    
+
     return tipo_olimpiada

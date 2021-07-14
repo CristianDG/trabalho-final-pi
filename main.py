@@ -35,7 +35,7 @@ def main():
         3: not_implemented,
         4: t4.main,
         5: not_implemented
-    }.get(num_grafico, erro)()
+    }.get(num_grafico)()
 
 if __name__ == '__main__':
     main()
