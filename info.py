@@ -39,10 +39,11 @@ def escolher_noc():
     noc_escolhido = {'US': 'USA', 'CZ':'CZE'}.get(pais, '')
     for noc, region, _ in noc_regions:
         if region == pais:
+            
             noc_escolhido = noc
             break
 
-    return noc_escolhido
+    return noc_escolhido, pais
 
 def selecionar_tipo_olimpiada():
 
