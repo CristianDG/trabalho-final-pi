@@ -1,10 +1,11 @@
 import csv
 
-athletes_titles , *athletes = list(csv.DictReader(open('./csv_files/athlete_events.csv', 'r'),
+athletes_titles , *athletes = list(csv.DictReader(
+    open('./csv_files/athlete_events.csv', 'r'),
     ['id', 'name', 'sex', 'age',
-    'height', 'weight', 'team',
-    'noc', 'games', 'year', 'season',
-    'city', 'sport', 'event', 'medal']))
+        'height', 'weight', 'team',
+        'noc', 'games', 'year', 'season',
+        'city', 'sport', 'event', 'medal']))
 
 noc_regions_titles, *noc_regions = list(csv.reader(open('./csv_files/noc_regions.csv', 'r')))
 
