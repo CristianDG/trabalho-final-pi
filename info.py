@@ -13,11 +13,12 @@ countries_continents_titles, *countries_continents = list(csv.reader(open('./csv
 continentes = sorted(list(set([line[0] for line in countries_continents])))
 
 def criar_menu(arr):
+    template = "{}) {}"
     for i, item in enumerate(arr):
         if type(item) == list:
-            print("{}) {}".format(i+1," ".join(item)))
+            print(template.format(i+1," ".join(item)))
         else:
-            print("{}) {}".format(i+1,item))
+            print(template.format(i+1,item))
     print()
 
 def escolher_noc():

@@ -52,7 +52,7 @@ def plotar_L3(data, title):
 
     plt.legend()
 
-    plt.show()
+    plt.savefig('png/l3.png')
     plt.clf()
 
 def main():
