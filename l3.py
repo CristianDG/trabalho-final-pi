@@ -8,8 +8,9 @@ def pegar_dados_para_plotagem():
     noc_escolhido, pais_escolhido = info.escolher_noc()
     tipo_olimpiada = info.selecionar_tipo_olimpiada()
 
-    games = sorted([game for game in set(line['games'] for line in info.athletes) if tipo_olimpiada in game], key= lambda item: int(item[:4]), reverse=True)
+    games = sorted([game for game in set(line['games'] for line in info.athletes if line['noc'] == noc_escolhido) if tipo_olimpiada in game], key= lambda item: int(item[:4]), reverse=True)
 
+    # TODO: adicionar tratamento de erro
     num_olimpiadas = int(input("Selecione a quantidade de olimpiadas: min. {} max. {}: ".format(1, len(games))))
 
     jogos_selecionados = games[:num_olimpiadas]
