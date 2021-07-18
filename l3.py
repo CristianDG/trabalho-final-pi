@@ -30,24 +30,20 @@ def plotar_L3(data, title):
     r = range(len(data))
     ax.plot(r,
             [year['Gold']   for year in data.values()][::-1],
-            color = '#ffd700',
+            color = 'gold',
             label = 'Medalhas de ouro')
 
     ax.plot(r,
             [year['Silver'] for year in data.values()][::-1],
-            color = '#c0c0c0',
+            color = 'silver',
             label = 'Medalhas de prata')
 
     ax.plot(r,
             [year['Bronze'] for year in data.values()][::-1],
-            color = '#b8860b',
+            color = 'saddlebrown',
             label = 'Medalhas de bronze')
 
-    ax.set_xticks(r)
-    ax.set_xticklabels([year[:4] for year in data][::-1])
-
-    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
-            rotation_mode="anchor")
+    plt.xticks(r, [year[:4] for year in data][::-1])
 
     plt.title('Desempenho do país "{}" nas últimas {} olimpíadas de {}'.format(*title))
 
