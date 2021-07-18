@@ -1,5 +1,6 @@
 import l3
 import t4
+import info
 
 #L3. Desempenho do <País> nas últimas <X> olimpíadas de <Tipo de Olimpíada>, três linhas, uma por cada tipo de medalha.
 
@@ -15,27 +16,24 @@ def not_implemented():
 
 # TODO: falta 1 grafico
 def main():
-    print("""
---------------------------- MENU ---------------------------
+    graficos = [
+            "Desempenho do <País> nas últimas <X> olimpíadas de <Tipo de Olimpíada>, três linhas, uma por cada tipo de medalha.",
+            "Altura média dos atletas para um grupo de <Esportes> na olimpíada de <Ano> de <Tipo de Olimpíada>, separados por sexo.",
+            "Peso dos atletas de <Género> a cada ano.",
+            "O maior vencedor de <Tipo de Medalha> num mesmo evento.",
+            "Um grafico ainda pra escolher"
+            ]
 
-1) Desempenho do <País> nas últimas <X> olimpíadas de <Tipo de Olimpíada>, três linhas, uma por cada tipo de medalha.
-2) Altura média dos atletas para um grupo de <Esportes> na olimpíada de <Ano> de <Tipo de Olimpíada>, separados por sexo.
-3) Peso dos atletas de <Género> a cada ano.
-4) O maior vencedor de <Tipo de Medalha> num mesmo evento.
-5) Um grafico ainda pra escolher
+    print(" --------------------------- MENU --------------------------- ")
+    num_grafico = info.criar_menu(graficos, prompt = 'Escolha uma das opções: ', only_index = True)
 
-""")
-
-
-    num_grafico = int(input('Escolha uma das opções: '))
-
-    {
-        1: l3.main,
-        2: not_implemented,
-        3: not_implemented,
-        4: t4.main,
-        5: not_implemented
-    }.get(num_grafico)()
+    [
+        l3.main,
+        not_implemented,
+        not_implemented,
+        t4.main,
+        not_implemented
+    ][num_grafico]()
 
 if __name__ == '__main__':
     main()
