@@ -2,6 +2,7 @@ import l3
 import t4
 import b12
 import t9
+import x2
 import info
 
 #L3. Desempenho do <País> nas últimas <X> olimpíadas de <Tipo de Olimpíada>, três linhas, uma por cada tipo de medalha.
@@ -33,7 +34,7 @@ def main():
         [
             l3.main,
             b12.main,
-            not_implemented,
+            x2.main,
             t4.main,
             t9.main
         ][num_grafico]()
