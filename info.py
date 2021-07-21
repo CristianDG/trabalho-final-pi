@@ -13,6 +13,12 @@ countries_continents_titles, *countries_continents = list(csv.reader(open('./csv
 
 continentes = sorted(list(set([line[0] for line in countries_continents])))
 
+def esportes_por_tipo(tipo_olimpiada):
+    return sorted(list(set([
+        line['sport']
+        for line in athletes
+        if line['season'] == tipo_olimpiada])))
+
 def criar_menu(arr,prompt = 'Selecione um numero: ', error='Numero inválido!',only_index = False):
     def get_index(had_error):
         template = "{}) {}"
@@ -59,7 +65,7 @@ def escolher_noc():
                 nocs.append(noc)
 
         if len(nocs) > 1:
-            noc_escolhido = criar_menu(nocs)
+            noc_escolhido = criar_menu(nocs, prompt = 'Escolha o numero do noc: ')
         else:
             noc_escolhido = nocs[0]
 
@@ -67,7 +73,23 @@ def escolher_noc():
 
 def selecionar_tipo_olimpiada():
 
-    num_olimpiada = criar_menu(['Verão', 'Inverno'], prompt = "Selecione o tipo de olimpiada: ", only_index = True)
+    num_olimpiada = criar_menu(
+            ['Verão', 'Inverno'],
+            prompt = "Selecione o tipo de olimpiada: ",
+            only_index = True)
+
     tipo_olimpiada = ["Summer", "Winter"][num_olimpiada]
 
     return tipo_olimpiada
+
+def alturas_partecipantes(esporte,tipo_olimpiada, ano):
+    dados_pessoas = set([
+        (line['id'],line['height'])
+        for line in athletes
+        if line['season'] == tipo_olimpiada
+        and line['sport'] == esporte
+        and line['year'] == ano
+        and line['height'] != 'NA'])
+
+    return map(lambda pessoa: int(pessoa[1]), dados_pessoas)
+
