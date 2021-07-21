@@ -1,5 +1,6 @@
 import l3
 import t4
+import b12
 import info
 
 #L3. Desempenho do <País> nas últimas <X> olimpíadas de <Tipo de Olimpíada>, três linhas, uma por cada tipo de medalha.
@@ -10,6 +11,7 @@ import info
 
 #T4. O maior vencedor de <Tipo de Medalha> num mesmo evento.
 
+#T9. Em que anos não houve olimpíadas?
 
 def not_implemented():
     print("OPÇÃO NÃO IMPLEMENTADA")
@@ -21,7 +23,7 @@ def main():
             "Altura média dos atletas para um grupo de <Esportes> na olimpíada de <Ano> de <Tipo de Olimpíada>, separados por sexo.",
             "Peso dos atletas de <Género> a cada ano.",
             "O maior vencedor de <Tipo de Medalha> num mesmo evento.",
-            "Um grafico ainda pra escolher"
+            "Em que anos não houve olimpíadas"
             ]
 
     print(" --------------------------- MENU --------------------------- ")
@@ -30,7 +32,7 @@ def main():
     try:
         [
             l3.main,
-            not_implemented,
+            b12.main,
             not_implemented,
             t4.main,
             not_implemented
