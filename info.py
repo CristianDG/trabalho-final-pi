@@ -12,6 +12,7 @@ noc_regions_titles, *noc_regions = list(csv.reader(open('./csv_files/noc_regions
 countries_continents_titles, *countries_continents = list(csv.reader(open('./csv_files/countries-continents.csv', 'r')))
 
 continentes = sorted(list(set([line[0] for line in countries_continents])))
+olimpiadas = sorted(list(set([(line['year'], line['season']) for line in athletes])))
 
 def esportes_por_tipo(tipo_olimpiada):
     return sorted(list(set([
@@ -71,7 +72,7 @@ def escolher_noc():
 
     return noc_escolhido, pais
 
-def selecionar_tipo_olimpiada():
+def escolher_tipo_olimpiada():
 
     num_olimpiada = criar_menu(
             ['Verão', 'Inverno'],
@@ -92,4 +93,19 @@ def alturas_partecipantes(esporte,tipo_olimpiada, ano):
         and line['height'] != 'NA'])
 
     return map(lambda pessoa: int(pessoa[1]), dados_pessoas)
+
+def escolher_ano(tipo_olimpiada):
+    return criar_menu([item[0] for item in olimpiadas if tipo_olimpiada == item[1]])
+
+def escolher_esportes(tipo_olimpiada):
+    esportes = []
+    while True:
+        esporte = criar_menu(
+                ['Sair'] + esportes_por_tipo(tipo_olimpiada),
+                prompt = 'Escolha um esporte (ou 1 para sair): ')
+
+        esportes.append(esporte)
+
+        if esporte == 'Sair':
+            return esportes
 

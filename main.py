@@ -27,13 +27,21 @@ def main():
     print(" --------------------------- MENU --------------------------- ")
     num_grafico = info.criar_menu(graficos, prompt = 'Escolha uma das opções: ', only_index = True)
 
-    [
-        l3.main,
-        not_implemented,
-        not_implemented,
-        t4.main,
-        not_implemented
-    ][num_grafico]()
+    try:
+        [
+            l3.main,
+            not_implemented,
+            not_implemented,
+            t4.main,
+            not_implemented
+        ][num_grafico]()
+    except FileNotFoundError:
+        print('ERRO: Por favor crie um diretorio png')
+    except NameError as msg:
+        print('ERRO:',msg)
+    except:
+        print('Ocorreu um erro inesperado')
+
 
 if __name__ == '__main__':
     main()

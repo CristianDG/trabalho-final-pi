@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def pegar_dados_para_plotagem():
     noc_escolhido, pais_escolhido = info.escolher_noc()
-    tipo_olimpiada = info.selecionar_tipo_olimpiada()
+    tipo_olimpiada = info.escolher_tipo_olimpiada()
 
     games = sorted([game for game in set(line['games'] for line in info.athletes if line['noc'] == noc_escolhido) if tipo_olimpiada in game], key= lambda item: int(item[:4]), reverse=True)
 
