@@ -40,8 +40,6 @@ def main():
         ][num_grafico]()
     except FileNotFoundError:
         print('ERRO: Por favor crie um diretorio png')
-    except NameError as msg:
-        print('ERRO:',msg)
     except:
         print('Ocorreu um erro inesperado')
 
