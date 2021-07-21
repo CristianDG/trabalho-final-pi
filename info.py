@@ -124,3 +124,7 @@ def medalhas_partecipantes(ano, tipo_olimpiada):
             for line in athletes
             if line['year'] == ano
             and line['season'] == tipo_olimpiada]
+
+def escolher_genero():
+    num_genero = criar_menu(['Masculino', 'Feminino'], prompt = "Escolha um genero: ", only_index = True)
+    return ['M','F'][num_genero]
