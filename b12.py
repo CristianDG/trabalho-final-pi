@@ -15,7 +15,7 @@ def pegar_dados_para_plotagem():
 
     alturas_medias_por_esporte = []
     for esporte in esportes:
-        alturas_homens, alturas_mulheres = info.alturas_partecipantes(esporte, tipo_olimpiada, ano)
+        alturas_homens, alturas_mulheres = info.alturas_participantes(esporte, tipo_olimpiada, ano)
 
         media_homens = calcular_media(alturas_homens)
         media_mulheres = calcular_media(alturas_mulheres)

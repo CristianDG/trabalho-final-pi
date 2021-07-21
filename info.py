@@ -83,7 +83,7 @@ def escolher_tipo_olimpiada():
 
     return tipo_olimpiada
 
-def alturas_partecipantes(esporte,tipo_olimpiada, ano):
+def alturas_participantes(esporte,tipo_olimpiada, ano):
 
     alturas_homem = set()
     alturas_mulher = set()
