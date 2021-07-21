@@ -76,7 +76,7 @@ def escolher_tipo_olimpiada():
 
     num_olimpiada = criar_menu(
             ['Verão', 'Inverno'],
-            prompt = "Selecione o tipo de olimpiada: ",
+            prompt = "Selecione o tipo de olimpíada: ",
             only_index = True)
 
     tipo_olimpiada = ["Summer", "Winter"][num_olimpiada]
@@ -95,7 +95,9 @@ def alturas_partecipantes(esporte,tipo_olimpiada, ano):
     return map(lambda pessoa: int(pessoa[1]), dados_pessoas)
 
 def escolher_ano(tipo_olimpiada):
-    return criar_menu([item[0] for item in olimpiadas if tipo_olimpiada == item[1]])
+    return criar_menu(
+            [item[0] for item in olimpiadas if tipo_olimpiada == item[1]],
+            prompt = 'Escolha o ano da olimpíada: ')
 
 def escolher_esportes(tipo_olimpiada):
     esportes = []
@@ -104,8 +106,21 @@ def escolher_esportes(tipo_olimpiada):
                 ['Sair'] + esportes_por_tipo(tipo_olimpiada),
                 prompt = 'Escolha um esporte (ou 1 para sair): ')
 
-        esportes.append(esporte)
-
         if esporte == 'Sair':
             return esportes
 
+        esportes.append(esporte)
+
+def escolher_medalha():
+    tipo_medalha = criar_menu(
+            ['Ouro','Prata','Bronze'],
+            prompt = 'Escolha o tipo da medalha: ',
+            only_index = True)
+    return ['Bronze', 'Silver', 'Gold'][tipo_medalha]
+
+
+def medalhas_partecipantes(ano, tipo_olimpiada):
+    return [(line['name'], line['medal'])
+            for line in athletes
+            if line['year'] == ano
+            and line['season'] == tipo_olimpiada]
