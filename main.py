@@ -1,6 +1,7 @@
 import l3
 import t4
 import b12
+import t9
 import info
 
 #L3. Desempenho do <País> nas últimas <X> olimpíadas de <Tipo de Olimpíada>, três linhas, uma por cada tipo de medalha.
@@ -16,7 +17,6 @@ import info
 def not_implemented():
     print("OPÇÃO NÃO IMPLEMENTADA")
 
-# TODO: falta 1 grafico
 def main():
     graficos = [
             "Desempenho do <País> nas últimas <X> olimpíadas de <Tipo de Olimpíada>, três linhas, uma por cada tipo de medalha.",
@@ -35,7 +35,7 @@ def main():
             b12.main,
             not_implemented,
             t4.main,
-            not_implemented
+            t9.main
         ][num_grafico]()
     except FileNotFoundError:
         print('ERRO: Por favor crie um diretorio png')
