@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 def pegar_dados_para_plotagem():
     genero = info.escolher_genero()
 
-    anos = set([ano for (ano,tipo) in info.olimpiadas])
+    anos = sorted(list(set([ano for (ano,tipo) in info.olimpiadas])))
 
     pesos = list(set([
         (int(line['id']), float(line['weight']), line['year'])
@@ -16,7 +16,17 @@ def pegar_dados_para_plotagem():
 
     dados = [ [peso for (_id, peso, ano_registrado) in pesos if ano_registrado == ano ] for ano in anos]
 
-    return dados, {'M': 'Masculino', 'F': 'Feminino'}[genero]
+    return dados, anos, {'M': 'Masculino', 'F': 'Feminino'}[genero]
+
+def plotar(dados,anos, genero):
+    r = range(1, len(dados)+1)
+
+    plt.boxplot(dados)
+    plt.xticks(r, anos, rotation = 70)
+    plt.title('Basic Plot')
+
+    plt.show()
+    plt.clf()
 
 def main():
-    pass
+    plotar(*pegar_dados_para_plotagem())
