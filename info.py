@@ -84,15 +84,20 @@ def escolher_tipo_olimpiada():
     return tipo_olimpiada
 
 def alturas_partecipantes(esporte,tipo_olimpiada, ano):
-    dados_pessoas = set([
-        (line['id'],line['height'])
-        for line in athletes
-        if line['season'] == tipo_olimpiada
-        and line['sport'] == esporte
-        and line['year'] == ano
-        and line['height'] != 'NA'])
 
-    return map(lambda pessoa: int(pessoa[1]), dados_pessoas)
+    alturas_homem = set()
+    alturas_mulher = set()
+
+    for line in athletes:
+        if line['season'] == tipo_olimpiada and line['sport'] == esporte and line['year'] == ano and line['height'] != 'NA':
+            altura = (line['id'],int(line['height']))
+
+            if line['sex'] == 'M':
+                alturas_homem.add(altura)
+            elif line['sex'] == 'F':
+                alturas_mulher.add(altura)
+
+    return list(alturas_homem), list(alturas_mulher)
 
 def escolher_ano(tipo_olimpiada):
     return criar_menu(
